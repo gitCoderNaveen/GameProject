@@ -7,17 +7,18 @@ import { StreamChat } from 'stream-chat'
 
 function App() {
   const api_key = '8ut688828g2j'
-  const token = Cookies.get('token')
+  const cookies = new Cookies()
+  const token = cookies.get('token')
   
   const client = StreamChat.getInstance(api_key)
 
   if(token){
     client.connectUser({
-      id:Cookies.get('userId'),
-      name:Cookies.get('userName'),
-      fistName:Cookies.get('firstName'),
-      lastName:Cookies.get('lastName'),
-      hashedPassword:Cookies.get('hashedPassword')
+      id: cookies.get('userId'),
+      name:cookies.get('userName'),
+      fistName:cookies.get('firstName'),
+      lastName:cookies.get('lastName'),
+      hashedPassword:cookies.get('hashedPassword')
     }, token).then((user)=>{
       console.log(user);
     })

@@ -11,7 +11,7 @@ export default function Signup() {
         Axios.post('http://localhost:3001/signup', user).then(res =>{
             const {token, firstName, lastName, userName, hashedPassword, userId} = res.data;
 
-            cookies.set('toker', token);
+            cookies.set('token', token);
             cookies.set('userId', userId);
             cookies.set('firstName', firstName);
             cookies.set('lastName', lastName);
